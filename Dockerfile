@@ -42,14 +42,14 @@ RUN apt-get install -y maven
 RUN mkdir /myWebApp
 #DOWNLOAD AND UNZIP YOUR WORKING DIRECTORY
 #----------------------------------------------------------------------------------------------------------------------------------------------
-ADD https://s3-us-west-2.amazonaws.com/hello-world-java/ebs-webapp-docker/myWebApp.zip /myWebApp/
+ADD https://s3-us-west-2.amazonaws.com/build-automation-jenkins/AwsJenkinsDemo/MyWebApplication-jenkins-AwsJenkinsDemo-14.zip /myWebApp/
 RUN cd /myWebApp/
-RUN unzip /myWebApp/myWebApp.zip -d /myWebApp/
+RUN unzip /myWebApp/MyWebApplication-jenkins-AwsJenkinsDemo-14.zip -d /myWebApp/
 #Read path of file to check if file is unzipped or not
 RUN find / -name pom.xml -print
 #Prepare by downloading dependencies
 #COPY pom.xml /myWebApp/pom.xml
-WORKDIR /myWebApp/myWebApp/
+WORKDIR /myWebApp/MyWebApplication-jenkins-AwsJenkinsDemo-14/
 RUN ls -l
 RUN ["mvn", "dependency:resolve"]  
 RUN ["mvn", "verify"]
