@@ -42,17 +42,17 @@ RUN apt-get install -y maven
 RUN mkdir /myWebApp
 #DOWNLOAD AND UNZIP YOUR WORKING DIRECTORY
 #----------------------------------------------------------------------------------------------------------------------------------------------
-ADD https://s3-us-west-2.amazonaws.com/build-automation-jenkins/AwsJenkinsDemo/MyWebApplication-jenkins-AwsJenkinsDemo-14.zip /myWebApp/
+ADD https://s3-us-west-2.amazonaws.com/build-automation-jenkins/AwsJenkinsDemo/MyWebApplication-jenkins-AwsJenkinsDemo-latest.zip /myWebApp/
 RUN cd /myWebApp/
-RUN unzip /myWebApp/MyWebApplication-jenkins-AwsJenkinsDemo-14.zip -d /myWebApp/
+RUN unzip /myWebApp/MyWebApplication-jenkins-AwsJenkinsDemo-latest.zip -d /myWebApp/
 #Read path of file to check if file is unzipped or not
 RUN find / -name pom.xml -print
 #Prepare by downloading dependencies
 #COPY pom.xml /myWebApp/pom.xml
-WORKDIR /myWebApp/MyWebApplication-jenkins-AwsJenkinsDemo-14/
+WORKDIR /myWebApp/MyWebApplication-jenkins-AwsJenkinsDemo-latest/
 RUN ls -l
-RUN ["mvn", "dependency:resolve"]  
-RUN ["mvn", "verify"]
+#RUN ["mvn", "dependency:resolve"]  
+#RUN ["mvn", "verify"]
 # check if ROOT.war has been built or not
 #----------------------------------------------------------------------------------------------------------------------------------------------
 RUN find / -name ROOT.war -print
