@@ -49,7 +49,7 @@ RUN unzip /myWebApp/MyWebApplication-latest.zip -d /myWebApp/
 RUN find / -name pom.xml -print
 #Prepare by downloading dependencies
 #COPY pom.xml /myWebApp/pom.xml
-WORKDIR /myWebApp/MyWebApplication-latest/
+WORKDIR /myWebApp/
 RUN ls -l
 #RUN ["mvn", "dependency:resolve"]  
 #RUN ["mvn", "verify"]
