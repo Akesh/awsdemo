@@ -7,6 +7,6 @@
 <title>Welcome</title>
 </head>
 <body style="background-color: #eee;">
-		<h1 style="text-align: center">My re-revised java application deployed on AWS Elastic Beanstalk using Docker container</h1>
+		<h1 style="text-align: center">Web application build using jenkins and deployed on ealstic bean stalk docker container</h1>
 </body>
 </html>
