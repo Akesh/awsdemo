@@ -37,16 +37,16 @@ RUN set -x \
 EXPOSE 8080
 
 #Install maven
-RUN apt-get update  
-RUN apt-get install -y maven
+#RUN apt-get update  
+#RUN apt-get install -y maven
 RUN mkdir /myWebApp
 #DOWNLOAD AND UNZIP YOUR WORKING DIRECTORY
 #----------------------------------------------------------------------------------------------------------------------------------------------
-ADD https://s3-us-west-2.amazonaws.com/build-automation-jenkins/AwsJenkinsDemo/MyWebApplication-latest.zip /myWebApp/
+#ADD https://s3-us-west-2.amazonaws.com/build-automation-jenkins/AwsJenkinsDemo/MyWebApplication-latest.zip /myWebApp/
 RUN cd /myWebApp/
-RUN unzip /myWebApp/MyWebApplication-latest.zip -d /myWebApp/
+#RUN unzip /myWebApp/MyWebApplication-latest.zip -d /myWebApp/
 #Read path of file to check if file is unzipped or not
-RUN find / -name pom.xml -print
+#RUN find / -name pom.xml -print
 #Prepare by downloading dependencies
 #COPY pom.xml /myWebApp/pom.xml
 WORKDIR /myWebApp/
@@ -58,6 +58,6 @@ RUN ls -l
 RUN find / -name ROOT.war -print
 RUN rm -r /usr/local/tomcat/webapps/*
 #RUN cp ./target/ROOT.war /usr/local/tomcat/webapps/
-RUN cp -R ./target/* /usr/local/tomcat/webapps/
+#RUN cp -R ./target/* /usr/local/tomcat/webapps/
 RUN ls -l /usr/local/tomcat/webapps/
 ENTRYPOINT ["catalina.sh", "run"]
