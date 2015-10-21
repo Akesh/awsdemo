@@ -46,6 +46,6 @@ RUN ls -l
 #----------------------------------------------------------------------------------------------------------------------------------------------
 RUN find / -name ROOT.war -print
 RUN rm -r /usr/local/tomcat/webapps/*
-RUN cp -R ./target/* /usr/local/tomcat/webapps/
+RUN cp -R ./* /usr/local/tomcat/webapps/
 RUN ls -l /usr/local/tomcat/webapps/
 ENTRYPOINT ["catalina.sh", "run"]
